@@ -1,0 +1,18 @@
+### testing api call
+
+### user
+
+### get user
+GET http://localhost:8000/
+
+### post user
+ POST http://localhost:8000/api/v1/users
+ Content-Type: application/json
+ 
+
+
+ {
+  "name": "Bhaskar",
+  "email": "ab@email.com",
+  "password":12345
+ }
