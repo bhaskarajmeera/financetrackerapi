@@ -8,8 +8,8 @@ router.post("/", async(req,res,next)=>{
 try{
 
     /* encrypt password  */
-    const hashPass = hashPassword(req.body.password)
-    console.log(hashPass)
+     req.body.password= hashPassword( req.body.password)
+    console.log(req.body.password)
 const user = await inserUser(req.body);
 user?._id ? 
 res.json({
