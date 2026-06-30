@@ -1,5 +1,5 @@
 import express from "express";
-import { inserUser } from "../models/user/UserModel.js";
+import { getUserByEmail, inserUser } from "../models/user/UserModel.js";
 import hashPassword from "../utils/bcryptjs.js";
 const router = express.Router()
 
@@ -27,7 +27,40 @@ res.json({
         })
         }
 })
-/* user logon */
+/* user login*/
+
+router.post("/login",(req,res,next) => {
+    try {
+        /* RECEIVE EMail and password */
+
+        const {email,password} = req.body;
+
+        if(email && password){res.json({
+    status:"success",
+    message:"todo login",
+    user: "todo",
+})
+return;
+        }
+        /*  find the user by email  */
+const user = getUserByEmail
+        /* match password        */
+
+
+        /* JWT and store the JWT IN DB*/
+
+res.status(401).json({
+    error:error.message,
+    
+})
+        
+    } catch (error) {
+        res.status(500).json({
+            error: error.message,
+        })
+        
+    }
+})
 
 /* user profile */
 
