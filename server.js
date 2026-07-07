@@ -1,6 +1,7 @@
 
 import express from 'express'
 import cors from "cors";
+console.log(">>> userRouter loaded");
 
 const app = express()
 const PORT = process.env.PORT || 8000
@@ -16,7 +17,7 @@ app.use(cors());
 import userRouter from "./routers/userRouter.js";
 app.use("/api/v1/users",userRouter)
 
-app.get('/', (req, res) => {
+app.get('/', (req, res, next) => {
   res.json({message:"Hello World"})
 })
 

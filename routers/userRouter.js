@@ -2,10 +2,28 @@ import express from "express";
 import { getUserByEmail, inserUser } from "../models/user/UserModel.js";
 import { comparePassword,hashPassword } from "../utils/bcryptjs.js";
 import { signJWT } from "../utils/jwt.js";
+import auth  from "../middlewares/authMiddleware.js";
 const router = express.Router()
 
-/* User signup */
-router.post("/", async(req,res,next)=>{
+
+router.get("/", auth, (req, res, next) => {
+  try {
+    const user = req.userInfo;
+
+    res.json({
+      status: "success",
+      message: "Here is the user profile",
+      user,
+    });
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+});
+
+/* /* User signup */
+router.post("/signup", async(req,res,next)=>{
 try{
 
     /* encrypt password  */
@@ -29,7 +47,7 @@ res.json({
 })
 /* user login*/
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
@@ -85,8 +103,6 @@ router.post("/login", async (req, res) => {
 });
 
 
-/* user profile */
-
-
 
 export default router;
+ 

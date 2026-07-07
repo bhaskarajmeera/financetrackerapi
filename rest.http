@@ -3,18 +3,18 @@
 ### user
 
 ### get user
-GET http://localhost:8000/
+GET http://localhost:8000/api/v1/users/
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiQGdtYWlsLmNvbSIsImlhdCI6MTc4MzMyOTE3OCwiZXhwIjoxNzgzNDE1NTc4fQ.osgx7_uPP4-6t-gOJ1l3WneeTdUQQ2nXJT52bBwjlBM
 
 ### post user
- POST http://localhost:8000/api/v1/users
+ POST http://localhost:8000/api/v1/users/signup
  Content-Type: application/json
  
 
-
  {
   "name": "Bhaskar",
-  "email": "ab@gmail.com",
-  "password":"12345"
+  "email": "d@gmail.com",
+  "password":"1234567"
  }
 
 ### post user login
@@ -22,6 +22,16 @@ GET http://localhost:8000/
  Content-Type: application/json
  
  {
+  "email": "ab@gmail.com",
+  "password":"12345"
+ }
+### get user email 
+ GET http://localhost:8000/api/v1/users
+ Content-Type: application/json
+ 
+
+ {
+  "name": "Bhaskar",
   "email": "ab@gmail.com",
   "password":"12345"
  }
