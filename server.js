@@ -1,11 +1,8 @@
 
 import express from 'express'
 import cors from "cors";
-console.log(">>> userRouter loaded");
-
 const app = express()
 const PORT = process.env.PORT || 8000
-
 /* Connect DB */
 import conMongoDb from "./config/mongodbConfig.js";
 conMongoDb();
@@ -15,12 +12,15 @@ app.use(cors());
 
 /* api end point */
 import userRouter from "./routers/userRouter.js";
-app.use("/api/v1/users",userRouter)
+app.use("/api/v1/users", userRouter)
+/* api end point for transactions */
+import transactionRouter from "./routers/transactionRouter.js"
+app.use("/api/v1/transactions", transactionRouter)
 
 app.get('/', (req, res, next) => {
   res.json({message:"Hello World"})
 })
 
 app.listen(PORT, () => {
-  console.log('Server is running on http://localhost:${PORT}')
+  console.log(`Server is running on http://localhost:${PORT}`)
 })

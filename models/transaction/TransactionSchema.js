@@ -1,0 +1,29 @@
+import mongoose from "mongoose";
+
+const transactionSchema = mongoose.Schema(
+  {
+    
+    type: {
+      type: String,
+      required: true,
+      enum: ["income", "expense"],
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+    tdate: {
+      type: String,
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export default mongoose.model("Transactions", transactionSchema);
