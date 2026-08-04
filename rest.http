@@ -1,21 +1,9 @@
-### testing api call
 
 ### user
-
 
 ### get user
 GET http://localhost:8000/api/v1/users
 Content-Type: application/json
-
-### post user
- POST http://localhost:8000/api/v1/users/signup
- Content-Type: application/json
- 
- {
-  "name": "Bhaskar",
-  "email": "d@gmail.com",
-  "password":"1234567"
- }
 
 ### post user login
  POST http://localhost:8000/api/v1/users/login
@@ -25,21 +13,13 @@ Content-Type: application/json
   "email": "ab@gmail.com",
   "password":"12345"
  }
-### get user email 
- GET http://localhost:8000/api/v1/users
- Content-Type: application/json
- 
- {
-  "name": "Bhaskar",
-  "email": "ab@gmail.com",
-  "password":"12345"
- }
 
 ### transactions: all private routes
 
 ### Post new transactions
 POST http://localhost:8000/api/v1/transactions
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiQGdtYWlsLmNvbSIsImlhdCI6MTc4MzUxMDA3MiwiZXhwIjoxNzgzNTk2NDcyfQ.9q3iKV8JCnbvkRzcJsNwWumOxLTpYbaMAPOyKZjpvFI
 
 {
 "type": "income",
@@ -49,3 +29,6 @@ Content-Type: application/json
 
 }
 
+#### Get all transactions
+GET http://localhost:8000/api/v1/transactions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiQGdtYWlsLmNvbSIsImlhdCI6MTc4MzUxMDA3MiwiZXhwIjoxNzgzNTk2NDcyfQ.9q3iKV8JCnbvkRzcJsNwWumOxLTpYbaMAPOyKZjpvFI

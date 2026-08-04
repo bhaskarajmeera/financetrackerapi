@@ -5,7 +5,6 @@ import { signJWT } from "../utils/jwt.js";
 import auth  from "../middlewares/authMiddleware.js";
 const router = express.Router()
 
-
 router.get("/", auth, (req, res, next) => {
   try {
     const user = req.userInfo;
@@ -21,7 +20,6 @@ router.get("/", auth, (req, res, next) => {
     });
   }
 });
-
 /* /* User signup */
 router.post("/signup", async(req,res,next)=>{
 try{
@@ -46,7 +44,6 @@ res.json({
         }
 })
 /* user login*/
-
 router.post("/login", async (req, res, next) => {
   try {
     const { email, password } = req.body;
@@ -101,8 +98,6 @@ router.post("/login", async (req, res, next) => {
     });
   }
 });
-
-
 
 export default router;
  

@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.post("/", auth, async (req, res, next) => {
+router.post("/transactions", auth, async (req, res, next) => {
   try {
     const payload = {
       ...req.body,
@@ -25,12 +25,12 @@ router.post("/", auth, async (req, res, next) => {
       amount: Number(req.body.amount),
     };
 
-    const transaction = await createTransaction(payload);
+    const transactions = await createTransaction(payload);
 
     res.status(201).json({
       status: "success",
       message: "Transaction saved",
-      data: transaction,
+      data: transactions,
     });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
