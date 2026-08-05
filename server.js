@@ -15,7 +15,7 @@ import userRouter from "./routers/userRouter.js";
 app.use("/api/v1/users", userRouter)
 /* api end point for transactions */
 import transactionRouter from "./routers/transactionRouter.js"
-app.use("/api/v1/transaction", transactionRouter)
+app.use("/api/v1/transactions", transactionRouter)
 
 app.get('/', (req, res, next) => {
   res.json({message:"Hello World"})
