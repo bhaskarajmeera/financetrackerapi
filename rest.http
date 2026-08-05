@@ -31,6 +31,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiQGdtYWlsLmNv
 
 #### Get all transactions
 GET http://localhost:8000/api/v1/transactions
+Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiQGdtYWlsLmNvbSIsImlhdCI6MTc4NTkwOTIwNywiZXhwIjoxNzg1OTk1NjA3fQ.ue0gx6FHlpyaOa7xKuX5AczOH99ugnOW5HgsDM9glfc
 
 ### delete transactions by a specific id

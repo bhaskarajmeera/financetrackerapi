@@ -28,8 +28,9 @@ router.post("/transactions", auth, async (req, res, next) => {
 /* return all the transactions for specific user */
 router.get("/", async (req, res, next) => {
   try {
-    const { _id } = req.userInfo;
-    const transactions = await getTransactionsByUser(_id);
+    const {_id} = req.userInfo._id;
+    console.log("userId", _id);
+    const transactions = await getTransactionsByUser({ userId: _id });
     res.json({
       status: "success",
       message: "Transactions fetched",
