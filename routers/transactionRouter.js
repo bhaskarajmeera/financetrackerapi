@@ -21,7 +21,7 @@ router.post("/transactions", auth, async (req, res, next) => {
       data: transactions,
     });
   } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
+    next(error);  
   }
 });
 
@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
       data: transactions,
     });
   } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
+    next(error);  
   }
 });
 
@@ -56,7 +56,7 @@ router.delete("/",auth,  async(req, res, next) => {
     });
   }
   catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
+   next(error);  
   }
 });
 export default router;

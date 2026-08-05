@@ -15,9 +15,7 @@ router.get("/", auth, (req, res, next) => {
       user,
     });
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);  
   }
 });
 /* /* User signup */
@@ -37,10 +35,7 @@ res.json({
                 status:"error",
                 message:" Error cretaing user, Please try again later",})   
     } catch(error){
-    res.json({
-    status:"failed check your error",
-    message: error.message
-        })
+    next(error);  
         }
 })
 /* user login*/
@@ -54,25 +49,18 @@ router.post("/login", async (req, res, next) => {
         message: "Email and password are required",
       });
     }
-
     // Find user by email
     const user = await getUserByEmail(email);
 
     if (!user?._id) {
-      return res.status(400).json({
-        status: "error",
-        message: "User not found",
-      });
+      next(error);  
     }
 
     // Compare password
     const isMatch = await comparePassword(password, user.password);
 
     if (!isMatch) {
-      return res.status(400).json({
-        status: "error",
-        message: "Invalid password",
-      });
+      next(error);  
     }
 
     // Generate JWT
@@ -91,11 +79,7 @@ router.post("/login", async (req, res, next) => {
     });
 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      status: "error",
-      message: "Server error",
-    });
+    next(error);  
   }
 });
 

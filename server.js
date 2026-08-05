@@ -15,6 +15,7 @@ import userRouter from "./routers/userRouter.js";
 app.use("/api/v1/users", userRouter)
 /* api end point for transactions */
 import transactionRouter from "./routers/transactionRouter.js"
+import { errorHandler } from './middlewares/errorHandlerMiddleware.js';
 app.use("/api/v1/transactions", transactionRouter)
 
 app.get('/', (req, res, next) => {
@@ -24,3 +25,13 @@ app.get('/', (req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
 })
+
+/* 404 page not found */
+app.use((req, res, next) => {
+  const error = new Error("Page not found");
+  error.statusCode = 404;
+  next(error);
+});
+
+/* global error handler */
+app.use(errorHandler); 
