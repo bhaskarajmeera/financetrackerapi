@@ -29,7 +29,7 @@ router.post("/transactions", auth, async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const {_id} = req.userInfo._id;
-    console.log("userId", _id);
+    
     const transactions = await getTransactionsByUser({ userId: _id });
     res.json({
       status: "success",
@@ -46,8 +46,7 @@ router.delete("/",auth,  async(req, res, next) => {
   try {
     const ids  = req.body;
     const {_id} = req.userInfo._id;
-    console.log("ids", ids);
-    console.log("userId", _id);
+    
     const deletedTransactions = await deleteTransactions({ userId: _id, idsToDelete: ids });
     res.json({
       status: "success",
